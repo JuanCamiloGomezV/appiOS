@@ -1,23 +1,13 @@
 import 'react-native-gesture-handler';
-
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  Text
-} from 'react-native';
-
-
+import {StackNavigator} from './src/navigator/StackNavigator';
+import {LateralMenu} from './src/navigator/LateralMenu';
 
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <Text>Holaaaa</Text>
-        </ScrollView>
-      </SafeAreaView>
+      <LateralMenu />
     </NavigationContainer>
   );
 }

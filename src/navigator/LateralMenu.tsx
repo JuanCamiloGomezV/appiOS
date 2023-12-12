@@ -11,6 +11,7 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import SettingsScreen from '../screens/SettingsScreen';
 import {styles} from '../theme/appTheme';
 import {Tabs} from './Tabs';
@@ -26,16 +27,11 @@ export const LateralMenu = () => {
       screenOptions={{
         drawerType: isLargeScreen ? 'permanent' : 'front',
         drawerHideStatusBarOnOpen: false,
+        headerShadowVisible: false,
       }}
       drawerContent={props => <DrawerContent {...props} />}>
       <Drawer.Screen name="Tabs" component={Tabs} />
-      <Drawer.Screen
-        name="SettingsScreen"
-        component={SettingsScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
 };
@@ -55,11 +51,13 @@ const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Tabs')}
           style={styles.menuButtom}>
-          <Text style={styles.menuText}>Navegación Stack</Text>
+          <Icon name="paper-plane-outline" size={15} />
+          <Text style={styles.menuText}>Tabs</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('SettingsScreen')}
           style={styles.menuButtom}>
+          <Icon name="key-outline" size={15} />
           <Text style={styles.menuText}>Ajustes</Text>
         </TouchableOpacity>
       </View>
